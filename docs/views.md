@@ -1,31 +1,34 @@
 # View Wireframes
 
 ## Root
-![root]
+![](/docs/wireframes/root.jpg?raw=true)
 
 ## User Feed
-![user_feed]
+![](/docs/wireframes/user_feed.jpg?raw=true)
 
 ## Feed Show
-![feed-show]
+![](/docs/wireframes/feed_show.jpg?raw=true)
 
 ## Feed Item
-![post-show]
+![](/docs/wireframes/feed_item.jpg?raw=true)
+
+## Full Post
+![](/docs/wireframes/post_show_full.jpg?raw=true)
 
 ## Post Item
-![post_show_item_small]
+![](/docs/wireframes/post_show_item_small.jpg?raw=true)
 
 ## Post Small
-![post_show_item_small]
+![](/docs/wireframes/post_show_item_small.jpg?raw=true)
 
 ## Search Results
-![search_results]
+![](/docs/wireframes/search_results.jpg?raw=true)
 
 ## Search Preview
-![search_preview]
+![](/docs/wireframes/search_preview.jpg?raw=true)
 
 ## Sidebar
-![sidebar]
+![](/docs/wireframes/sidebar.jpg?raw=true)
 
 
 
