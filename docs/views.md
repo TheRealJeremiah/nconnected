@@ -1,22 +1,33 @@
 # View Wireframes
 
-## New Session
-![new-session]
+## Root
+![root]
 
-## Feed Show (landing page)
+## User Feed
+![user_feed]
+
+## Feed Show
 ![feed-show]
 
-## Blog Show
-![blog-show]
-
-## Post Show
+## Feed Item
 ![post-show]
 
-## Post Form
-![post-form]
+## Post Item
+![post_show_item_small]
+
+## Post Small
+![post_show_item_small]
 
 ## Search Results
-![search-results]
+![search_results]
+
+## Search Preview
+![search_preview]
+
+## Sidebar
+![sidebar]
+
+
 
 [new-session]: ./wireframes/new_session.png
 [feed-show]: ./wireframes/feed_show.png

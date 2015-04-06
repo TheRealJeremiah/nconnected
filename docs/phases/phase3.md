@@ -13,9 +13,9 @@
 ### Collections
 
 ### Views
-* PostForm
+* FeedView
+* Sidebar
 
 ## Gems/Libraries
-* Filepicker
-* Markdown-js
-* Bootstrap Markdown
+* Bootstrap
+* jquery ui

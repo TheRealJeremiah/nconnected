@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: http://flux-capacitr.herokuapp.com
+[heroku]: 
 
 ## Minimum Viable Product
 N-connected is a clone of Feedly built on Rails and Backbone. Users can:
@@ -11,14 +11,12 @@ N-connected is a clone of Feedly built on Rails and Backbone. Users can:
 
 - [ ] Create accounts
 - [ ] Create sessions (log in)
-- [ ] Create blogs
-- [ ] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
-- [ ] Search for blogs by title
-- [ ] Search for posts by tag
+- [ ] Search for feeds by title
+- [ ] Search for feeds by tag
+- [ ] Subscribe to feeds
+- [ ] View a feed of subscribed feeds
+- [ ] View full posts from feeds
+
 
 ## Design Docs
 * [View Wireframes][views]
@@ -29,59 +27,46 @@ N-connected is a clone of Feedly built on Rails and Backbone. Users can:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Blog Creation (~1 day)
-I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create blogs using
-a simple text form in a Rails view. The most important part of this phase will
-be pushing the app to Heroku and ensuring that everything works before moving on
-to phase 2.
+### Phase 1: User Authentication, feed subscription, tags (~1 day)
+I will implement user authentication in rails, use third party libraries to
+get posts from an rss feed. I'll add the tag model, and some seed data so that
+feeds are available for users to subscribe to.
 
 [Details][phase-one]
 
-### Phase 2: Viewing Blogs and Posts (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
-models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create blogs and view both blogs and posts, all
-inside a single Backbone app.
+### Phase 2: Viewing feeds and posts (~2 days)
+I will add API routes for feeds that will return feed and post data in JSON. I
+will then create the corresponding models/collections in backbone. I will then
+make feed and post views.
 
 [Details][phase-two]
 
-### Phase 3: Editing and Displaying Posts (~2 days)
-I plan to use third-party libraries to add functionality to the `PostForm` and
-`PostShow` views in this phase. First I'll need to add a Markdown editor to the
-`PostForm`, and make sure that the Markdown is properly escaped and formatted in
-the `PostShow` view. I also plan to integrate Filepicker for file upload so
-users can add images to blog posts.
+### Phase 3: User feed view and sidebar/jquery ui (~2 days)
+I will create the main user feed view, and work on adding jquery ui transitions
+to the main and feed pages so that feeds can pop from the right. I don't want
+to save all the css/ui until the end.
 
 [Details][phase-three]
 
-### Phase 4: User Feeds (~1-2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s
-`subscribed_blogs` association to serve a list of blog posts ordered
-chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
-collection fetches from the new route.  Ultimately, this will be the page users
-see after logging in.
+### Phase 4: Search by title and tag (~1-2 days)
+I will create the live search view and implement the ability to have results
+appear as a term is typed in. I will also implement the ability to click on
+a result and have a feed show page pop up with jquery ui.
 
 [Details][phase-four]
 
-### Phase 5: Searching for Blogs and Posts (~2 days)
-I'll need to add `search` routes to both the Blogs and Posts controllers. On the
-Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
-and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
-collections, but they will fetch from the new `search` routes.
+### Phase 5: Moderator page, More css/ui debugging (~2 days)
+Allow moderators to add curated rss feeds. Would be done through feeds/new route
+but permission only given to moderators. Also, It needs to look pretty.
 
 [Details][phase-five]
 
 ### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
-- [ ] Custom blog urls
-- [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Reblogging
+- [ ] "Like" button for feeds
+- [ ] User comments on feeds
+- [ ] Suggested feeds on main feed view
+- [ ] In page PDF Viewer for journal articles
 - [ ] Multiple sessions/session management
-- [ ] User avatars
-- [ ] Typeahead search bar
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
