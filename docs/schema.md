@@ -28,8 +28,9 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 feed_id     | integer   | not null, foreign key (references feeds)
+post_date   | date      | not null
 title       | string    | not null
-body        | string    |
+json        | text      | not null
 
 ## tags
 column name | data type | details

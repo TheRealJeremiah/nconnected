@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: 
+[heroku]: https://nconnected.herokuapp.com
 
 ## Minimum Viable Product
 N-connected is a clone of Feedly built on Rails and Backbone. Users can:
