@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+.session-buttons {
+  float: right;
+}
+
+.logo {
+  float: left;
+}
+
+.main-page {
+  width: 800px;
+  margin: auto;
+}
+.main-page-search {
+  width: 500px;
+  margin: auto;
+  padding: 100px 0 0 0;
+}

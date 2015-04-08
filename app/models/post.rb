@@ -13,4 +13,9 @@
 
 class Post < ActiveRecord::Base
   validates :feed_id, :post_date, :title, :json, presence: true
+  belongs_to :feed
+
+  def full_post
+    json
+  end
 end

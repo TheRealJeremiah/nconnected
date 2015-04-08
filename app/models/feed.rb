@@ -12,4 +12,9 @@
 
 class Feed < ActiveRecord::Base
   validates :title, :url, presence: true
+  has_many :posts
+
+  def fetch_entries
+    Feedjira::Feed.fetch_and_parse(url).entries
+  end
 end
