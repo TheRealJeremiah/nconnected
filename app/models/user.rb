@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
   attr_reader :password
 
+  has_many :subscriptions
+  has_many :feeds, through: :subscriptions
+
   def self.find_by_credentials(params)
     user = User.find_by_email(params[:email])
     return user if user.is_password?(params[:password])

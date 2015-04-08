@@ -25,12 +25,62 @@
   float: left;
 }
 
-.main-page {
-  width: 800px;
+#content {
+  max-width: 860px;
   margin: auto;
+}
+
+.main-page {
+  // margin: auto;
 }
 .main-page-search {
   width: 500px;
   margin: auto;
   padding: 100px 0 0 0;
+}
+
+.results-header h1{
+  float: left;
+}
+
+.results-page-search {
+  float: right;
+  width: 180px;
+}
+
+.feed-item-container {
+  width: 260px;
+  height: 160px;
+  color: #494949;
+  border-radius: 4px;
+  border: thin solid #ccc;
+  float: left;
+}
+
+.feed-item-title {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.feed-item-description {
+  font-size: 13px;
+}
+
+.feed-item-subscribe {
+  padding: 3px 0 0 6px;
+  color: #2bb24c;
+  height: 30px;
+  width: 30px;
+  border: 2px solid #2bb24c;
+  border-radius: 4px;
+}
+
+.feed-item-subscribe:hover {
+  background-color: #caecc2;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
 }

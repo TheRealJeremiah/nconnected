@@ -5,7 +5,8 @@ window.Nconnected = {
   Routers: {},
   initialize: function() {
     new Nconnected.Routers.Router({
-      $rootEl: $("#content")
+      $rootEl: $("#content"),
+      feeds: new Nconnected.Collections.Feeds()
     });
     Backbone.history.start();
   }
