@@ -53,6 +53,7 @@
   height: 160px;
   color: #494949;
   border-radius: 4px;
+  padding: 5px 10px;
   border: thin solid #ccc;
   float: left;
 }
@@ -66,7 +67,7 @@
   font-size: 13px;
 }
 
-.feed-item-subscribe {
+.feed-item-subscribe, .feed-item-unsubscribe {
   padding: 3px 0 0 6px;
   color: #2bb24c;
   height: 30px;
@@ -77,6 +78,10 @@
 
 .feed-item-subscribe:hover {
   background-color: #caecc2;
+}
+
+.feed-item-unsubscribe:hover {
+  background-color: #eccac2;
 }
 
 .clearfix:after {

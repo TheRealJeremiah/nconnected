@@ -1,7 +1,7 @@
 class Api::FeedsController < ApplicationController
   def index
     @feeds = Feed.all
-    render json: @feeds
+    render :index
   end
 
   def show

@@ -1,7 +1,7 @@
 class Api::SubscriptionsController < ApplicationController
-  # before_action do
-  #   # require login
-  # end
+  before_action do
+    render json: { error: 'Not logged in' }, status: 403 unless logged_in?
+  end
 
   def create
     @sub = Subscription.new(sub_params)
@@ -13,8 +13,8 @@ class Api::SubscriptionsController < ApplicationController
     end
   end
 
-  def delete
-    #make sure user owns this subscription
+  def destroy
+    # make sure user owns this subscription
     @sub = Subscription.find(params[:id])
     Subscription.destroy(params[:id])
     render json: @sub

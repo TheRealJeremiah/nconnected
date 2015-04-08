@@ -5,7 +5,13 @@
   <div class="feed-item-description">
     <%= feed.escape('description') %>
   </div>
-  <div class="feed-item-subscribe">
-    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-  </div>
+  <% if (feed.get('subscribed')) { %>
+    <div class="feed-item-unsubscribe">
+      <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+    </div>
+  <% } else { %>
+    <div class="feed-item-subscribe">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </div>
+  <% } %>
 </div>

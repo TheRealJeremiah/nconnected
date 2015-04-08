@@ -45,6 +45,13 @@ class User < ActiveRecord::Base
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def subscription_id(feed)
+    subscriptions.each do |sub|
+      return sub.id if sub.feed_id == feed.id
+    end
+    false
+  end
+
   private
 
   def ensure_session_token
