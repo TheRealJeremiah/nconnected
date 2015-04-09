@@ -1,4 +1,4 @@
-Nconnected.Views.Root = Backbone.View.extend({
+Nconnected.Views.Root = Backbone.CompositeView.extend({
   template: JST["root/root"],
   className: "main-page",
   events: {

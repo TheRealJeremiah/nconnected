@@ -1,5 +1,5 @@
 Nconnected.Collections.Feeds = Backbone.Collection.extend({
-  url: "api/feeds",
+  url: "/api/feeds",
   model: Nconnected.Models.Feed,
 
   byTitle: function () {
@@ -7,6 +7,6 @@ Nconnected.Collections.Feeds = Backbone.Collection.extend({
   },
 
   byTag: function () {
-    
+
   }
 })

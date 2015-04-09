@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
+//= require_tree ./utils
 //= require bootstrap
 //= require nconnected
 //= require_tree ../templates

@@ -1,4 +1,4 @@
-Nconnected.Views.FeedItem = Backbone.View.extend({
+Nconnected.Views.FeedItem = Backbone.CompositeView.extend({
   template: JST['feeds/item'],
   events: {
     "click .feed-item-subscribe": "subscribe",

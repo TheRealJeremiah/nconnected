@@ -17,6 +17,10 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ body {
+   color: #494949;
+ }
+
 .session-buttons {
   float: right;
 }
@@ -26,6 +30,11 @@
 }
 
 #content {
+  max-width: 860px;
+  margin: auto;
+}
+
+.nconnected-navbar {
   max-width: 860px;
   margin: auto;
 }
@@ -46,6 +55,16 @@
 .results-page-search {
   float: right;
   width: 180px;
+}
+
+.results-page-logout {
+  float: right;
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+.results-page-logout:hover {
+  color: #2bb24c;
 }
 
 .feed-item-container {
@@ -81,7 +100,7 @@
 }
 
 .feed-item-unsubscribe:hover {
-  background-color: #eccac2;
+  background-color: #fcdad2;
 }
 
 .clearfix:after {

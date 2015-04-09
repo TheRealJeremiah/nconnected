@@ -1,4 +1,4 @@
-Nconnected.Views.SearchResults = Backbone.View.extend({
+Nconnected.Views.SearchResults = Backbone.CompositeView.extend({
   template: JST['search/results'],
   className: 'results',
   events: {
@@ -6,17 +6,18 @@ Nconnected.Views.SearchResults = Backbone.View.extend({
   },
   initialize: function (options) {
     this.title = options.title;
-    this.listenTo(this.collection, "sync", this.render)
+    this.listenTo(this.collection, "add", this.addFeedView.bind(this))
+    this.collection.each(this.addFeedView.bind(this));
   },
   render: function () {
     var content = this.template({title: this.title});
     this.$el.html(content);
-    var results = this.$el.find("#search-results")
-    this.collection.each(function (feed) {
-      var resultView = new Nconnected.Views.FeedItem({model: feed});
-      results.append(resultView.render().$el);
-    });
+    this.attachSubviews();
     return this;
+  },
+  addFeedView: function (feed) {
+    var feedItemView = new Nconnected.Views.FeedItem({model: feed});
+    this.addSubview('#search-results', feedItemView);
   },
   search: function (event) {
     event.preventDefault();
