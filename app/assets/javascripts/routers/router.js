@@ -5,7 +5,8 @@ Nconnected.Routers.Router = Backbone.Router.extend({
   },
   routes: {
     "": "root",
-    "search/:term": "search"
+    "search/:term": "search",
+    "feeds/:id": "feed"
   },
 
   root: function () {
@@ -15,8 +16,14 @@ Nconnected.Routers.Router = Backbone.Router.extend({
 
   search: function (term) {
     this.feeds.fetch();
-    var filtered = this.feeds
+    var filtered = this.feeds // use filter
     var view = new Nconnected.Views.SearchResults({title: term, collection: filtered});
+    this._swapView(view);
+  },
+
+  feed: function(id) {
+    var feed = this.feeds.getOrFetch(id)
+    var view = new Nconnected.Views.FeedFull({model: feed});
     this._swapView(view);
   },
 

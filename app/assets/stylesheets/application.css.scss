@@ -103,6 +103,17 @@
   background-color: #fcdad2;
 }
 
+.feed-full-container {
+  width: 640px;
+  margin: auto;
+}
+
+.feed-full-header {
+  padding: 0px 10px 10px 10px;
+  border-radius: 4px;
+  border: thin solid #ccc;
+}
+
 .clearfix:after {
   content: "";
   display: table;

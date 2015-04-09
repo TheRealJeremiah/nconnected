@@ -16,6 +16,6 @@ class Feed < ActiveRecord::Base
   has_many :subscriptions
 
   def fetch_entries
-    Feedjira::Feed.fetch_and_parse(url).entries
+    Feedjira::Feed.fetch_and_parse(url).entries[0..9]
   end
 end
