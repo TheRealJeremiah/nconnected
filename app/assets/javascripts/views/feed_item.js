@@ -3,7 +3,7 @@ Nconnected.Views.FeedItem = Backbone.CompositeView.extend({
   events: {
     "click .feed-item-subscribe": "subscribe",
     "click .feed-item-unsubscribe": "unsubscribe",
-    "click .feed-item-container": "handleModal"
+    "click .feed-item-title": "handleModal"
   },
   initialize: function () {
     this.listenTo(this.model, "change", this.render)
@@ -45,7 +45,8 @@ Nconnected.Views.FeedItem = Backbone.CompositeView.extend({
     var modalView = new Nconnected.Views.FeedFull({model: feed});
     this.addSubview('.modal-container', modalView);
   },
-  handleModal: function () {
+  handleModal: function (event) {
+    event.preventDefault();
     if (!$('.modal').length) {
       this.addModal(this.model); // only do once
     }
