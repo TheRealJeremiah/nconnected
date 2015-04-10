@@ -21,6 +21,19 @@
    color: #494949;
  }
 
+.modal-backdrop.in {
+    opacity: 0;
+}
+.modal-dialog {
+    position: absolute;
+    right: 0px;
+    margin-right: 0px;
+}
+.modal.fade:not(.in) .modal-dialog {
+	-webkit-transform: translate3d(125%, 0, 0);
+	transform: translate3d(125%, 0, 0);
+}
+
 .session-buttons {
   float: right;
 }

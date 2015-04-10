@@ -1,6 +1,6 @@
 Nconnected.Views.FeedFull = Backbone.CompositeView.extend({
   template: JST['feeds/full'],
-  className: 'feed-full-container clearfix',
+  className: 'feed-full-container modal fade',
   initialize: function () {
     this.collection = this.model.posts();
     this.collection.fetch();
