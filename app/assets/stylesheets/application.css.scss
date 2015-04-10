@@ -22,12 +22,14 @@
  }
 
 .modal-backdrop.in {
-    opacity: 0;
+    opacity: 0.2;
 }
 .modal-dialog {
     position: absolute;
     right: 0px;
+    top: 0px;
     margin-right: 0px;
+    margin-top: 0px;
 }
 .modal.fade:not(.in) .modal-dialog {
 	-webkit-transform: translate3d(125%, 0, 0);
