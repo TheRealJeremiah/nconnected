@@ -1,31 +1,61 @@
-<nav class="navbar navbar-default">
-  <div class="nconnected-navbar">
-    <!-- <div class="navbar-header">
-      <a class="navbar-brand" href="#"><img src="/logo-small.png" style="width: 30%;height:auto;" alt="" /></a>
-    </div> -->
-    <ul class="nav navbar-nav navbar-left">
-      <li><a href="/">Home</a></li>
-    </ul>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <% if !logged_in? %>
-          <div class="btn-group session-buttons" role="group" aria-label="...">
-            <a href="/session/new" type="button" class="btn btn-default">Log in</a>
-            <a href="/users/new" type="button" class="btn btn-default">Sign up</a>
-          </div>
-        <% else %>
-        <li>
-          <form id="logout_form" class="results-page-logout" action="/session" method="post">
-            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-            <input type="hidden" name="_method" value="delete">
-            <span class="glyphicon glyphicon-log-out" aria-hidden="true" onclick="document.getElementById('logout_form').submit();"></span>
-          </form>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</nav>
+<div id="wrapper">
 
-<div id="content">
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+    <% if logged_in? %>
+    <div class="sidebar-content">
+
+    </div>
+    <% else %>
+    <a href="/session/new" type="button" class="btn btn-default">Log in</a>
+    <% end %>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <nav class="navbar navbar-default">
+      <div class="nconnected-navbar">
+        <!-- <div class="navbar-header">
+          <a class="navbar-brand" href="#"><img src="/logo-small.png" style="width: 30%;height:auto;" alt="" /></a>
+        </div> -->
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="/">Home</a></li>
+        </ul>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <% if !logged_in? %>
+              <div class="btn-group session-buttons" role="group" aria-label="...">
+                <a href="/session/new" type="button" class="btn btn-default">Log in</a>
+                <a href="/users/new" type="button" class="btn btn-default">Sign up</a>
+              </div>
+            <% else %>
+            <li>
+              <form id="logout_form" class="results-page-logout" action="/session" method="post">
+                <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+                <input type="hidden" name="_method" value="delete">
+                <span class="glyphicon glyphicon-log-out" aria-hidden="true" onclick="document.getElementById('logout_form').submit();"></span>
+              </form>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="content" class="clearfix">
+    </div>
+    <a href="#" id="menu-toggle">toggle</a>
+  </div>
+  <!-- /#page-content-wrapper -->
+
 </div>
+<!-- /#wrapper -->
+
+<!-- Menu Toggle Script -->
+<script>
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+</script>

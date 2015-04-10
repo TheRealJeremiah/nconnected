@@ -6,7 +6,8 @@ Nconnected.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "root",
     "search/:term": "search",
-    "feeds/:id": "feed"
+    "feeds/:id": "feed",
+    "me": "myFeeds"
   },
 
   root: function () {
@@ -24,6 +25,13 @@ Nconnected.Routers.Router = Backbone.Router.extend({
   feed: function(id) {
     var feed = this.feeds.getOrFetch(id)
     var view = new Nconnected.Views.FeedFull({model: feed});
+    this._swapView(view);
+  },
+
+  myFeeds: function () {
+    this.feeds.fetch({data: {user_feed_only: true}});
+    var posts = this.feeds // write method in posts collection to combine feeds
+    var view = new Nconnected.Views.MyFeed({title: "My feeds", collection: posts});
     this._swapView(view);
   },
 

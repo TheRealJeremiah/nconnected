@@ -1,7 +1,18 @@
-<form action="<%= users_path %>" method="post">
-  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-  <input type="text" name="user[email]" placeholder="email"><br>
-  <input type="password" name="user[password]" placeholder="password"><br>
-  <input type="submit" value="Sign Up!">
+<!--
+    you can substitue the span of reauth email for a input with the email and
+    include the remember me checkbox
+    -->
+    <div class="container">
+        <div class="card card-container">
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin" action="<%= users_path %>" method="post">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+                <input name="user[email]" type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <input name="user[password]" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
-</form>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up!</button>
+            </form><!-- /form -->
+        </div><!-- /card-container -->
+    </div><!-- /container -->
