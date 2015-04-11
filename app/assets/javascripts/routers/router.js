@@ -30,8 +30,9 @@ Nconnected.Routers.Router = Backbone.Router.extend({
 
   myFeeds: function () {
     this.feeds.fetch({data: {user_feed_only: true}});
-    var posts = this.feeds // write method in posts collection to combine feeds
-    var view = new Nconnected.Views.MyFeed({title: "My feeds", collection: posts});
+    var posts = new Nconnected.Collections.Posts([], {userPosts: true});
+    posts.fetch();
+    var view = new Nconnected.Views.MyFeed({title: "my feeds", collection: posts});
     this._swapView(view);
   },
 

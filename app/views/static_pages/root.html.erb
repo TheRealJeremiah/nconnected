@@ -4,10 +4,12 @@
   <div id="sidebar-wrapper">
     <% if logged_in? %>
     <div class="sidebar-content">
-
+      <a href="/#me" type="button" class="btn btn-success">Home</a>
     </div>
     <% else %>
-    <a href="/session/new" type="button" class="btn btn-default">Log in</a>
+    <div class="sidebar-content-login">
+      <a href="/session/new" type="button" class="btn btn-success">Log in</a>
+    </div>
     <% end %>
   </div>
   <!-- /#sidebar-wrapper -->

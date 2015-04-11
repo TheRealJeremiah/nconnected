@@ -53,6 +53,12 @@ class User < ActiveRecord::Base
     false
   end
 
+  def all_feed_posts
+    feed_urls = feeds.map(&:url)
+    feed_parsed = Feedjira::Feed.fetch_and_parse(feed_urls)
+    feed_parsed.values.map(&:entries).flatten(1)
+  end
+
   private
 
   def ensure_session_token

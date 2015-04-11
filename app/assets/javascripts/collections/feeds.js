@@ -15,7 +15,7 @@ Nconnected.Collections.Feeds = Backbone.Collection.extend({
 
     var feed;
     if (!(feed = feeds.get(id))) {
-      feed = new feeds.model({id: id});
+      feed = new Nconnected.Models.Feed({id: id});
       feed.fetch({
         success: function (model) {
           feeds.add(model);
