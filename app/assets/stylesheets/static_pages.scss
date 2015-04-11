@@ -11,7 +11,7 @@
 }
 
 #wrapper.toggled {
-    padding-left: 250px;
+    padding-left: 200px;
 }
 
 #sidebar-wrapper {
@@ -46,6 +46,11 @@
 
 /* Sidebar Styles */
 .sidebar-content-login {
+  margin: 200px 0px 0px 92px;
+  display: inline-block;
+}
+
+.sidebar-content {
   margin: 200px 0px 0px 92px;
   display: inline-block;
 }
@@ -110,7 +115,10 @@
     }
 
     #wrapper.toggled #sidebar-wrapper {
-        width: 0;
+        width: 75px;
+    }
+    #wrapper.toggled #sidebar-wrapper .sidebar-hide {
+        display:none;
     }
 
     #page-content-wrapper {

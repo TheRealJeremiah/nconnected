@@ -1,16 +1,18 @@
-<div id="wrapper">
+<div id="wrapper" class="toggled">
 
   <!-- Sidebar -->
   <div id="sidebar-wrapper">
+    <div class="sidebar-hide">
     <% if logged_in? %>
     <div class="sidebar-content">
-      <a href="/#me" type="button" class="btn btn-success">Home</a>
+      <a href="/#me" type="button" class="btn btn-success">My feeds</a>
     </div>
     <% else %>
     <div class="sidebar-content-login">
       <a href="/session/new" type="button" class="btn btn-success">Log in</a>
     </div>
     <% end %>
+    </div>
   </div>
   <!-- /#sidebar-wrapper -->
 
@@ -47,7 +49,6 @@
 
     <div id="content" class="clearfix">
     </div>
-    <a href="#" id="menu-toggle">toggle</a>
   </div>
   <!-- /#page-content-wrapper -->
 
@@ -56,7 +57,12 @@
 
 <!-- Menu Toggle Script -->
 <script>
-$("#menu-toggle").click(function(e) {
+$("#sidebar-wrapper").mouseenter(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+
+$("#sidebar-wrapper").mouseleave(function(e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
 });
