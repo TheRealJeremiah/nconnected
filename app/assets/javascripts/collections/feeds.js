@@ -2,8 +2,11 @@ Nconnected.Collections.Feeds = Backbone.Collection.extend({
   url: "/api/feeds",
   model: Nconnected.Models.Feed,
 
-  byTitle: function () {
-
+  byTitle: function (title) {
+    filtered = this.filter(function(feed) {
+      return feed.get("title").toLowerCase().indexOf(title.toLowerCase()) > -1;
+      });
+    return new Nconnected.Collections.Feeds(filtered);
   },
 
   byTag: function () {

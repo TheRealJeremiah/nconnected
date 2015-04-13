@@ -16,8 +16,8 @@ Nconnected.Routers.Router = Backbone.Router.extend({
   },
 
   search: function (term) {
-    this.feeds.fetch();
-    var filtered = this.feeds // use filter
+    var filtered = new Nconnected.Collections.Feeds();
+    filtered.fetch({data: {title_search: term}});
     var view = new Nconnected.Views.SearchResults({title: term, collection: filtered});
     this._swapView(view);
   },

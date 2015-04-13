@@ -3,7 +3,11 @@ class Api::FeedsController < ApplicationController
     if params[:user_feed_only]
       @feeds = current_user.feeds
     else
-      @feeds = Feed.all
+      if !params[:title_search]
+        @feeds = Feed.all
+      else
+        @feeds = Feed.where('LOWER(title) ~ LOWER(:title)', :title => params[:title_search])
+      end
     end
     render :index
   end

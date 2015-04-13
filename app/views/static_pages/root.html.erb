@@ -3,15 +3,25 @@
   <!-- Sidebar -->
   <div id="sidebar-wrapper">
     <div class="sidebar-hide">
-    <% if logged_in? %>
-    <div class="sidebar-content">
-      <a href="/#me" type="button" class="btn btn-success">My feeds</a>
+      <% if logged_in? %>
+      <div class="sidebar-content">
+        <a href="/#me" type="button" class="btn btn-success">My feeds</a>
+      </div>
+      <% else %>
+      <div class="sidebar-content-login">
+        <a href="/session/new" type="button" class="btn btn-success">Log in</a><br><br>
+        <form class="btn" action="<%= session_path %>" method="post" style="padding: 0px; margin: 0px;">
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+            <input name="session[email]" type="hidden" id="inputEmail" class="form-control" value="guest" required autofocus>
+            <input name="session[password]" type="hidden" id="inputPassword" class="form-control" value="password" required>
+
+            <button class="btn btn-success" type="submit">Guest log in</button>
+        </form>
+      </div>
+      <% end %>
     </div>
-    <% else %>
-    <div class="sidebar-content-login">
-      <a href="/session/new" type="button" class="btn btn-success">Log in</a>
-    </div>
-    <% end %>
+    <div class="sidebar-glyph">
+      <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
     </div>
   </div>
   <!-- /#sidebar-wrapper -->
@@ -29,10 +39,15 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <% if !logged_in? %>
-              <div class="btn-group session-buttons" role="group" aria-label="...">
-                <a href="/session/new" type="button" class="btn btn-default">Log in</a>
-                <a href="/users/new" type="button" class="btn btn-default">Sign up</a>
-              </div>
+                <form class="btn-group session-buttons" action="<%= session_path %>" method="post" style="padding: 0px; margin: 0px;">
+                  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+                  <input name="session[email]" type="hidden" id="inputEmail" class="form-control" value="guest" required autofocus>
+                  <input name="session[password]" type="hidden" id="inputPassword" class="form-control" value="password" required>
+
+                  <button class="btn btn-default" type="submit">Guest log in</button>
+                  <a href="/session/new" type="button" class="btn btn-default">Log in</a>
+                  <a href="/users/new" type="button" class="btn btn-default">Sign up</a>
+                </form>
             <% else %>
             <li>
               <form id="logout_form" class="results-page-logout" action="/session" method="post">

@@ -43,6 +43,9 @@
     position: absolute;
     margin-right: -250px;
 }
+#wrapper:not(.toggled) .sidebar-glyph {
+  display:none;
+}
 
 /* Sidebar Styles */
 .sidebar-content-login {
@@ -101,6 +104,12 @@
     background: none;
 }
 
+.sidebar-glyph {
+  position: absolute;
+  top:267px;
+  margin-left: 15px;
+}
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 250px;
@@ -118,7 +127,7 @@
         width: 50px;
     }
     #wrapper.toggled #sidebar-wrapper .sidebar-hide {
-        display:none;
+        visibility:hidden;
     }
 
     #page-content-wrapper {
