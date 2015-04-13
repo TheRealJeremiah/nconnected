@@ -9,7 +9,7 @@ Nconnected.Views.MyFeed = Backbone.CompositeView.extend({
     return this;
   },
   addPost: function (post) {
-    var view = new Nconnected.Views.PostItemSmall({model: post});
+    var view = new Nconnected.Views.PostSwitcher({model: post});
     this.addSubview('.user-feed-posts', view);
   }
 });

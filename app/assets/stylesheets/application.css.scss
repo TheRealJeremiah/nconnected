@@ -141,6 +141,26 @@
   border: thin solid #ccc;
 }
 
+.user-feed-posts {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-item-small {
+  margin: 0;
+  padding: 5px 10px 5px 10px;
+  border-top: thin solid #ccc;
+}
+
+.post-item-small:hover {
+  background-color: #eee;
+}
+
+.post-item-small-summary {
+  font-weight: bold;
+}
+
 .clearfix:after {
   content: "";
   display: table;
