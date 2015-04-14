@@ -1,9 +1,9 @@
 <div class="feed-item-container">
   <div class="feed-item-title">
-    <a href=""><%= feed.escape('title') %></a>
+    <a href=""><%= feed.get('title') %></a>
   </div>
   <div class="feed-item-description">
-    <%= feed.escape('description') %>
+    <%= feed.get('description') %>
   </div>
   <% if (feed.get('subscribed')) { %>
     <div class="feed-item-unsubscribe">

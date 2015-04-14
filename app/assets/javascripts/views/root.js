@@ -3,23 +3,28 @@ Nconnected.Views.Root = Backbone.CompositeView.extend({
   className: "main-page clearfix",
   events: {
     "submit form": "search",
-    "keyup form": "liveSearch"
-    // "blur form": "removeResults"
+    "keyup form": "liveSearch",
+    "blur form": "removeResults"
   },
+
   initialize: function () {
     this.listenTo(this.collection, "add", this.addResult);
   },
+
   render: function () {
     var content = this.template();
+    // TODO: get rid of listener on remove
     this.$el.html(content);
     return this
   },
+
   search: function (event) {
     event.preventDefault();
     var attr = $(event.currentTarget).serializeJSON();
     var term = attr['term'];
     Backbone.history.navigate('#search/'+term, true);
   },
+
   liveSearch: function (event) {
     var term = $(event.currentTarget).serializeJSON()['term'];
     this.collection.reset()
@@ -27,13 +32,18 @@ Nconnected.Views.Root = Backbone.CompositeView.extend({
     $('.live-search-results').removeClass('hidden-search');
     this.collection.fetch({data: {title_search: term}})
   },
+
   addResult: function (model) {
     var resultView = new Nconnected.Views.LiveSearchResult({model: model});
     this.addSubview('.live-search-results', resultView)
   },
+
   removeResults: function (event) {
-    // debugger
-    this.removeSubviews();
-    $('.live-search-results').addClass('hidden-search');
+    // this is a hacky way to allow the subview to handle a click before
+    // being removed
+    setTimeout(function () {
+      this.removeSubviews();
+      $('.live-search-results').addClass('hidden-search');
+    }.bind(this), 30);
   }
 })

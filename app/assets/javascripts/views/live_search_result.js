@@ -11,7 +11,6 @@ Nconnected.Views.LiveSearchResult = Backbone.CompositeView.extend({
     return this;
   },
   redirect: function () {
-    console.log('hi')
     Backbone.history.navigate('/feeds/' + this.model.id, true);
   }
 });
