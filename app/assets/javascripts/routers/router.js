@@ -24,7 +24,7 @@ Nconnected.Routers.Router = Backbone.Router.extend({
 
   feed: function(id) {
     var feed = this.feeds.getOrFetch(id)
-    var view = new Nconnected.Views.FeedFull({model: feed});
+    var view = new Nconnected.Views.FeedFullDirect({model: feed});
     this._swapView(view);
   },
 

@@ -3,8 +3,8 @@ Nconnected.Views.Root = Backbone.CompositeView.extend({
   className: "main-page clearfix",
   events: {
     "submit form": "search",
-    "keyup form": "liveSearch",
-    "blur form": "removeResults"
+    "keyup form": "liveSearch"
+    // "blur form": "removeResults"
   },
   initialize: function () {
     this.listenTo(this.collection, "add", this.addResult);
@@ -32,6 +32,7 @@ Nconnected.Views.Root = Backbone.CompositeView.extend({
     this.addSubview('.live-search-results', resultView)
   },
   removeResults: function (event) {
+    // debugger
     this.removeSubviews();
     $('.live-search-results').addClass('hidden-search');
   }
