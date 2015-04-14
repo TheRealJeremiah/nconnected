@@ -11,7 +11,7 @@ Nconnected.Routers.Router = Backbone.Router.extend({
   },
 
   root: function () {
-    var view = new Nconnected.Views.Root();
+    var view = new Nconnected.Views.Root({collection: this.feeds});
     this._swapView(view);
   },
 

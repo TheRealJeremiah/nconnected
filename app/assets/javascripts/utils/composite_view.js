@@ -53,6 +53,14 @@ Backbone.CompositeView = Backbone.View.extend({
     subviews.splice(subviews.indexOf(subview), 1);
   },
 
+  removeSubviews: function () {
+    _(this.subviews()).each(function (subviews) {
+      _(subviews).each(function (subview) {
+        subview.remove();
+      });
+    });
+  },
+
   subviews: function (selector) {
     // Map of selectors to subviews that live inside that selector.
     // Optionally pass a selector and I'll initialize/return an array
