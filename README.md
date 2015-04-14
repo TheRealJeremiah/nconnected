@@ -4,18 +4,29 @@
 
 [heroku]: https://nconnected.herokuapp.com
 
+The goal with this project is to apply the technologies I have learned about to
+create a solid rails/javascript application. Here is a list of some of those
+technologies and where they show up:
+
+- Boostrap/html5: front end design/modals
+- Ruby on rails: Hand made user authentication/site backend. Subscribing to feeds, etc. Created api layer to serve backbone models/collections
+- Activerecord/sql: searching through feeds
+- jQuery: Toggle subscribe/unsibscribe button/ toggle post view on click in 'My feeds'
+- backbone.js: Constructing page views from templates/interacting with database.
+
 ## Minimum Viable Product
 N-connected is a clone of Feedly built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
-- [ ] Search for feeds by title
+- [X] Create accounts
+- [X] Create sessions (log in)
+- [X] Search for feeds by title
 - [ ] Search for feeds by tag
-- [ ] Subscribe to feeds
-- [ ] View a feed of subscribed feeds
-- [ ] View full posts from feeds
+- [ ] View instant search results
+- [X] Subscribe to feeds
+- [X] View a feed of subscribed feeds
+- [X] View full posts from feeds
 
 
 ## Design Docs
