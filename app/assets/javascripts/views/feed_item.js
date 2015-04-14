@@ -47,11 +47,11 @@ Nconnected.Views.FeedItem = Backbone.CompositeView.extend({
   },
   handleModal: function (event) {
     event.preventDefault();
-    if (!$('.modal').length) {
+    if (!this.$el.find('.modal').length) {
       this.addModal(this.model); // only do once
     }
-    $('.modal')
+    this.$el.find('.modal')
         .prop('class', 'modal fade') // revert to default
-    $('.modal').modal('show');
+    this.$el.find('.modal').modal('show');
   }
 });
