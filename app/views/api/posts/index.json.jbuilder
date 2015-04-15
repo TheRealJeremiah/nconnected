@@ -11,7 +11,9 @@
 
 json.posts do
   json.array! @posts do |post|
+    json.id post.id
     json.favorited @favorite_posts.include?(post)
+    json.favoritedId current_user.favorite_id(post)
     json.title post.title
     json.url post.url
     json.summary post.summary

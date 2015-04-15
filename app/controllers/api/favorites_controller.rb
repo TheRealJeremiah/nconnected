@@ -4,7 +4,7 @@ class Api::FavoritesController < ApplicationController
   end
 
   def create
-    @fav = Favorite.new(sub_params)
+    @fav = Favorite.new(fav_params)
     @fav.user_id = current_user.id
     if @fav.save
       render json: @fav
@@ -22,7 +22,7 @@ class Api::FavoritesController < ApplicationController
 
   private
 
-  def sub_params
-    params.require(:subscription).permit(:user_id, :post_id)
+  def fav_params
+    params.require(:favorite).permit(:user_id, :post_id)
   end
 end

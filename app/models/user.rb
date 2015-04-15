@@ -57,6 +57,13 @@ class User < ActiveRecord::Base
     false
   end
 
+  def favorite_id(post)
+    favorites.each do |fav|
+      return fav.id if fav.post_id == post.id
+    end
+    false
+  end
+
   def all_feed_posts
     feed_urls = feeds.map(&:url)
     #we do all the fetching at once to take advantage of feedjira async

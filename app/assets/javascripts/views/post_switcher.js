@@ -8,6 +8,7 @@ Nconnected.Views.PostSwitcher = Backbone.CompositeView.extend({
   initialize: function () {
     this.currentView = new Nconnected.Views.PostItemSmall({model: this.model});
     this.isSmall = true;
+    this.listenTo(this.model, "change", this.render)
   },
   render: function () {
     this.$el.html(this.currentView.render().$el);
@@ -26,7 +27,25 @@ Nconnected.Views.PostSwitcher = Backbone.CompositeView.extend({
   },
   handleStarClick: function (event) {
     event.stopPropagation();
-    console.log('david rules');
+    if (!this.model.get('favorited')) {
+      var favorite = new Nconnected.Models.Favorite();
+      favorite.save({post_id: this.model.id}, {
+        success: function (model) {
+          this.model.set({favorited: true, favoritedId: model.id});
+          this.model.trigger('change');
+        }.bind(this)
+      })
+    } else {
+      var favorite = new Nconnected.Models.Favorite({id: this.model.get('favoritedId')});
+      favorite.destroy({
+        success: function () {
+          this.model.set({
+            favorited: false,
+            favoriteId: false});
+          this.model.trigger("change");
+        }.bind(this)
+      });
+    }
   },
   _swapView: function (view) {
     this.currentView && this.currentView.remove();
