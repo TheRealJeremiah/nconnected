@@ -7,8 +7,7 @@ Nconnected.Views.MyFeed = Backbone.CompositeView.extend({
         if (collection.length == 0) {
           $('.user-feed-posts').html('No subscribed feeds');
         }
-      },
-      remove: false
+      }
     })
     this.hasPosts = false;
   },

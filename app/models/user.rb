@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
     feeds.each do |feed|
       feed.update_posts(feed_parsed[feed.url].entries)
     end
-    self.posts
+    self.posts.order('published DESC')
   end
 
   private
