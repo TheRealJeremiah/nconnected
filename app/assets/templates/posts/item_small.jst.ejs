@@ -1,4 +1,9 @@
 <p class="post-item-small-title">
+  <% if (post.get('favorited')) { %>
+    <span class="glyphicon glyphicon-star favorited-star favorited" aria-hidden="true"></span>
+  <% } else { %>
+    <span class="glyphicon glyphicon-star favorited-star" aria-hidden="true"></span>
+  <% } %>
   <%= post.get('title') %>
 </p><p class="post-item-small-summary">
   <%= post.get('summary').slice(0,100) %>

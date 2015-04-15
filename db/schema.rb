@@ -11,28 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408180414) do
+ActiveRecord::Schema.define(version: 20150415171947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "post_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "favorites", ["post_id"], name: "index_favorites_on_post_id", using: :btree
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
+
   create_table "feeds", force: :cascade do |t|
-    t.string   "title",       null: false
-    t.string   "url",         null: false
+    t.string   "title",            null: false
+    t.string   "url",              null: false
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.datetime "latest_post_date"
   end
 
   add_index "feeds", ["title"], name: "index_feeds_on_title", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.integer  "feed_id",    null: false
-    t.date     "post_date",  null: false
     t.string   "title",      null: false
     t.text     "json",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "url"
+    t.text     "summary"
+    t.datetime "published"
   end
 
   add_index "posts", ["feed_id"], name: "index_posts_on_feed_id", using: :btree

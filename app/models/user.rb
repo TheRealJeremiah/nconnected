@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
 
   has_many :subscriptions
   has_many :feeds, through: :subscriptions
+  has_many :posts, through: :feeds
+
+  has_many :favorites
+  has_many :favorite_posts, through: :favorites, source: :post
 
   def self.find_by_credentials(params)
     user = User.find_by_email(params[:email])
@@ -55,8 +59,12 @@ class User < ActiveRecord::Base
 
   def all_feed_posts
     feed_urls = feeds.map(&:url)
+    #we do all the fetching at once to take advantage of feedjira async
     feed_parsed = Feedjira::Feed.fetch_and_parse(feed_urls)
-    feed_parsed.values.map(&:entries).flatten(1)
+    feeds.each do |feed|
+      feed.update_posts(feed_parsed[feed.url].entries)
+    end
+    self.posts
   end
 
   private
