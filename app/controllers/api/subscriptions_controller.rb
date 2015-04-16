@@ -14,8 +14,7 @@ class Api::SubscriptionsController < ApplicationController
   end
 
   def destroy
-    # make sure user owns this subscription
-    @sub = Subscription.find(params[:id])
+    @sub = current_user.subscriptions.find(params[:id])
     Subscription.destroy(params[:id])
     render json: @sub
   end

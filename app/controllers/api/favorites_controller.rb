@@ -14,8 +14,7 @@ class Api::FavoritesController < ApplicationController
   end
 
   def destroy
-    # make sure user owns this subscription
-    @fav = Favorite.find(params[:id])
+    @fav = current_user.favorites.find(params[:id])
     Favorite.destroy(params[:id])
     render json: @fav
   end
