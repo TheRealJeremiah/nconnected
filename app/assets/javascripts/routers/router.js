@@ -7,7 +7,8 @@ Nconnected.Routers.Router = Backbone.Router.extend({
     "": "root",
     "search/:term": "search",
     "feeds/:id": "feed",
-    "me": "myFeeds"
+    "me": "myFeeds",
+    "favorites": "myFavs"
   },
 
   root: function () {
@@ -29,9 +30,14 @@ Nconnected.Routers.Router = Backbone.Router.extend({
   },
 
   myFeeds: function () {
-    this.feeds.fetch({data: {user_feed_only: true}});
     var posts = new Nconnected.Collections.Posts([], {userPosts: true});
-    var view = new Nconnected.Views.MyFeed({title: "my feeds", collection: posts});
+    var view = new Nconnected.Views.MyFeed({title: "My feeds", collection: posts});
+    this._swapView(view);
+  },
+
+  myFavs: function () {
+    var posts = new Nconnected.Collections.Posts([], {userPosts: true, onlyFavs: true});
+    var view = new Nconnected.Views.MyFeed({title: "My favorite posts", collection: posts});
     this._swapView(view);
   },
 

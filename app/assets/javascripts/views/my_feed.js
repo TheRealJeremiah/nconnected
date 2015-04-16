@@ -1,6 +1,6 @@
 Nconnected.Views.MyFeed = Backbone.CompositeView.extend({
   template: JST['user/feed'],
-  initialize: function () {
+  initialize: function (options) {
     this.listenTo(this.collection, 'add', this.addPost.bind(this));
     this.collection.fetch({
       success: function (collection) {
@@ -10,9 +10,10 @@ Nconnected.Views.MyFeed = Backbone.CompositeView.extend({
       }
     })
     this.hasPosts = false;
+    this.title = options.title;
   },
   render: function () {
-    var content = this.template();
+    var content = this.template({title: this.title});
     this.$el.html(content);
     return this;
   },

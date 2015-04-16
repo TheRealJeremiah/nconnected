@@ -32,17 +32,13 @@ Nconnected.Views.PostSwitcher = Backbone.CompositeView.extend({
       favorite.save({post_id: this.model.id}, {
         success: function (model) {
           this.model.set({favorited: true, favoritedId: model.id});
-          this.model.trigger('change');
         }.bind(this)
       })
     } else {
       var favorite = new Nconnected.Models.Favorite({id: this.model.get('favoritedId')});
       favorite.destroy({
         success: function () {
-          this.model.set({
-            favorited: false,
-            favoriteId: false});
-          this.model.trigger("change");
+          this.model.set({favorited: false, favoriteId: false});
         }.bind(this)
       });
     }

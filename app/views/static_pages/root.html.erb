@@ -5,7 +5,9 @@
     <div class="sidebar-hide">
       <% if logged_in? %>
       <div class="sidebar-content">
+        <!-- handle link with backbone to prevent page reload? -->
         <a href="/#me" type="button" class="btn btn-success">My feeds</a>
+        <a href="/#favorites" type="button" class="btn btn-success">Favorite posts</a>
       </div>
       <% else %>
       <div class="sidebar-content-login">

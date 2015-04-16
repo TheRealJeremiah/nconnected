@@ -6,9 +6,14 @@ class Api::PostsController < ApplicationController
       @favorite_posts = []
       render :index
     elsif logged_in?
-      @posts = current_user.all_feed_posts
-      @favorite_posts = current_user.favorite_posts
-      render :index
+      if params[:only_favs]
+        @favorite_posts = current_user.favorite_posts
+        render :fav_index
+      else
+        @posts = current_user.all_feed_posts
+        @favorite_posts = current_user.favorite_posts
+        render :index
+      end
     end
   end
 end

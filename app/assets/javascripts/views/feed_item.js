@@ -22,10 +22,10 @@ Nconnected.Views.FeedItem = Backbone.CompositeView.extend({
         this.model.set({
           subscribed: true,
           subscriptionId: model.id});
-        this.model.trigger("change");
+        // this.subscription = //TA: set it here? just a thought...
       }.bind(this),
-      error: function () {
-        console.log("please log in")
+      error: function () { // TA: check for 403 status code specifically
+        console.log("please log in");
       }
     })
   },
@@ -36,8 +36,7 @@ Nconnected.Views.FeedItem = Backbone.CompositeView.extend({
       success: function () {
         this.model.set({
           subscribed: false,
-          subscriptionId: false});
-        this.model.trigger("change");
+          subscriptionId: false}); // tA: null
       }.bind(this)
     });
   },
@@ -50,8 +49,7 @@ Nconnected.Views.FeedItem = Backbone.CompositeView.extend({
     if (!this.$el.find('.modal').length) {
       this.addModal(this.model); // only do once
     }
-    this.$el.find('.modal')
-        .prop('class', 'modal fade') // revert to default
+    this.$el.find('.modal').prop('class', 'modal fade') // revert to default
     this.$el.find('.modal').modal('show');
   }
 });

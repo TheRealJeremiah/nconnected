@@ -23,7 +23,7 @@ N-connected is a clone of Feedly built on Rails and Backbone. Users can:
 - [X] Create sessions (log in)
 - [X] Search for feeds by title
 - [ ] Search for feeds by tag
-- [ ] View instant search results
+- [X] View instant search results
 - [X] Subscribe to feeds
 - [X] View a feed of subscribed feeds
 - [X] View full posts from feeds
@@ -73,7 +73,7 @@ but permission only given to moderators. Also, It needs to look pretty.
 [Details][phase-five]
 
 ### Bonus Features (TBD)
-- [ ] "Like" button for feeds
+- [X] "Like" button for feeds
 - [ ] User comments on feeds
 - [ ] Suggested feeds on main feed view
 - [ ] In page PDF Viewer for journal articles
