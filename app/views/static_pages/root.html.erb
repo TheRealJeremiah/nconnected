@@ -4,9 +4,10 @@
   <div id="sidebar-wrapper">
     <div class="sidebar-hide">
       <% if logged_in? %>
-      <div class="sidebar-content">
+      <div class="sidebar-content btn-group-vertical">
         <!-- handle link with backbone to prevent page reload? -->
-        <a href="/#me" type="button" class="btn btn-success">My feeds</a>
+        <a href="/#me" type="button" class="btn btn-success">My feed</a>
+        <a href="/#feeds" type="button" class="btn btn-success">Manage subscriptions</a>
         <a href="/#favorites" type="button" class="btn btn-success">Favorite posts</a>
       </div>
       <% else %>
