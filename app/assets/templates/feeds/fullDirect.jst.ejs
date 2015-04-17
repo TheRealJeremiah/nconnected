@@ -1,6 +1,15 @@
 <div class="feed-direct-header">
   <h4 class="modal-title"><%= feed.get('title') %></h4>
   <%= feed.get('description') %>
+  <% if (feed.get('subscribed')) { %>
+    <div class="feed-full-unsubscribe">
+      <span class="glyphicon glyphicon-minus" aria-hidden="true" alt="unsubscribe"></span>
+    </div>
+  <% } else { %>
+    <div class="feed-full-subscribe">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true" alt="subscribe"></span>
+    </div>
+  <% } %>
 </div>
 <div class="feed-posts">
 </div>

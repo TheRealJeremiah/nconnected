@@ -6,6 +6,15 @@
       </div>
       <div class="modal-body">
         <%= feed.get('description') %>
+        <% if (feed.get('subscribed')) { %>
+          <div class="feed-modal-unsubscribe">
+            <span class="glyphicon glyphicon-minus" aria-hidden="true" alt="unsubscribe"></span>
+          </div>
+        <% } else { %>
+          <div class="feed-modal-subscribe">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true" alt="subscribe"></span>
+          </div>
+        <% } %>
         <div class="feed-posts">
         </div>
       </div>

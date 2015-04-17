@@ -144,7 +144,9 @@
   color: #494949;
 }
 
-.feed-item-subscribe, .feed-item-unsubscribe {
+.feed-item-subscribe, .feed-item-unsubscribe,
+.feed-modal-subscribe, .feed-modal-unsubscribe,
+.feed-full-subscribe, .feed-full-unsubscribe {
   padding: 3px 0 0 6px;
   color: #2bb24c;
   height: 30px;
@@ -153,11 +155,11 @@
   border-radius: 4px;
 }
 
-.feed-item-subscribe:hover {
+.feed-item-subscribe:hover, .feed-modal-subscribe:hover, .feed-full-subscribe:hover  {
   background-color: #caecc2;
 }
 
-.feed-item-unsubscribe:hover {
+.feed-item-unsubscribe:hover, .feed-modal-unsubscribe:hover, .feed-full-unsubscribe:hover {
   background-color: #fcdad2;
 }
 
