@@ -8,8 +8,8 @@ Nconnected.Views.Root = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.collection, "add", this.addResult);
-    // need to remove at somepoint
     $('body').on('click', this.removeResults.bind(this));
+    // need to remove at somepoint
   },
 
   render: function () {
@@ -21,6 +21,7 @@ Nconnected.Views.Root = Backbone.CompositeView.extend({
 
   search: function (event) {
     event.preventDefault();
+    $('body').off();
     var attr = $(event.currentTarget).serializeJSON();
     var term = attr['term'];
     Backbone.history.navigate('#search/'+term, true);
