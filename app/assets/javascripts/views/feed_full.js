@@ -1,11 +1,6 @@
 Nconnected.Views.FeedFull = Backbone.CompositeView.extend({
   template: JST['feeds/full'],
   className: 'feed-full-container modal fade',
-  // events: {
-  //   "click .feed-modal-subscribe": "subscribe",
-  //   "click .feed-modal-unsubscribe": "unsubscribe",
-  //   "click .close": "dismissModal"
-  // },
   initialize: function () {
     this.collection = this.model.posts();
     this.collection.fetch();
@@ -18,10 +13,6 @@ Nconnected.Views.FeedFull = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.attachSubviews();
     return this;
-  },
-  dismissModal: function (event) {
-    event.preventDefault();
-    this.$el.modal("toggle");
   },
   addPostView: function (post) {
     var view = new Nconnected.Views.PostItem({model: post});
