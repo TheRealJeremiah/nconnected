@@ -17,8 +17,10 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- body {
+ body, html {
    color: #494949;
+   height: 100%;
+   width: 100%;
  }
 
 .modal-backdrop.in {

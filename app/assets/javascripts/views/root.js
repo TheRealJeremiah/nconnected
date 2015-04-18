@@ -3,17 +3,18 @@ Nconnected.Views.Root = Backbone.CompositeView.extend({
   className: "main-page clearfix",
   events: {
     "submit form": "search",
-    "keyup form": "liveSearch",
-    "blur form": "removeResults"
+    "keyup form": "liveSearch"
   },
 
   initialize: function () {
     this.listenTo(this.collection, "add", this.addResult);
+    // need to remove at somepoint
+    $('body').on('click', this.removeResults.bind(this));
   },
 
   render: function () {
     var content = this.template();
-    // TODO: get rid of listener on remove
+    // TODO: get rid of body listener on remove
     this.$el.html(content);
     return this
   },
@@ -39,11 +40,7 @@ Nconnected.Views.Root = Backbone.CompositeView.extend({
   },
 
   removeResults: function (event) {
-    // this is a hacky way to allow the subview to handle a click before
-    // being removed
-    setTimeout(function () {
-      this.removeSubviews();
-      $('.live-search-results').addClass('hidden-search');
-    }.bind(this), 30);
+    this.removeSubviews();
+    $('.live-search-results').addClass('hidden-search');
   }
 })
