@@ -10,7 +10,8 @@
       <span class="glyphicon glyphicon-minus" aria-hidden="true" alt="unsubscribe"></span>
     </div>
   <% } else { %>
-    <div class="feed-item-subscribe">
+    <div class="feed-item-subscribe" <% if (!feed.get('loggedIn')) { %>
+      data-toggle="tooltip" data-placement="top" title="Please log in to subscribe!" <% } %>>
       <span class="glyphicon glyphicon-plus" aria-hidden="true" alt="subscribe"></span>
     </div>
   <% } %>

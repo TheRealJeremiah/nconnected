@@ -7,6 +7,9 @@ Nconnected.Views.FeedItem = Backbone.CompositeView.extend({
   },
   initialize: function () {
     this.listenTo(this.model, "change", this.render)
+    if (!this.model.get('loggedIn')) {
+      $('[data-toggle="tooltip"]').tooltip();
+    }
   },
   render: function () {
     var content = this.template({feed: this.model});

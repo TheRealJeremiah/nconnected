@@ -5,6 +5,7 @@ json.array! @feeds do |feed|
   else
     json.subscriptionId false  # TA: nil
   end
+  json.loggedIn logged_in?
   json.id feed.id
   json.title feed.title
   json.url feed.url
