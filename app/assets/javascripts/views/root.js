@@ -9,12 +9,11 @@ Nconnected.Views.Root = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.collection, "add", this.addResult);
     $('body').on('click', this.removeResults.bind(this));
-    // need to remove at somepoint
+    // listener is removed on results click and search enter
   },
 
   render: function () {
     var content = this.template();
-    // TODO: get rid of body listener on remove
     this.$el.html(content);
     return this
   },
