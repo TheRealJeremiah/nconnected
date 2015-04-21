@@ -30,8 +30,12 @@ Nconnected.Views.Root = Backbone.CompositeView.extend({
     var term = $(event.currentTarget).serializeJSON()['term'];
     this.collection.reset()
     this.removeSubviews();
-    $('.live-search-results').removeClass('hidden-search');
-    this.collection.fetch({data: {title_search: term}})
+    if (term.length > 0) {
+      $('.live-search-results').removeClass('hidden-search');
+      this.collection.fetch({data: {title_search: term}})
+    } else {
+      this.removeResults();
+    }
   },
 
   addResult: function (model) {
